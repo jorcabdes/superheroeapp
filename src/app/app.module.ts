@@ -9,11 +9,14 @@ import { TodoslospersonajesComponent } from './todoslospersonajes/todoslosperson
 import {RouterModule, Routes} from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
 import { InformacionComponent } from './informacion/informacion.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes:Routes = [
   {path:"",component: InicioComponent},
   {path:"informacion",component: InformacionComponent},
-  {path:"buscar",component: TodoslospersonajesComponent}
+  {path:"buscar",component: TodoslospersonajesComponent},
+  {path:"login",component: LoginComponent}
 
 ]
 
@@ -23,7 +26,9 @@ const appRoutes:Routes = [
     PersonajeComponent,
     TodoslospersonajesComponent,
     InicioComponent,
-    InformacionComponent
+    InformacionComponent,
+    UsuariosComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
