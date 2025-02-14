@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Buscador</h2>
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <input type="text" #nom id="buscador" placeholder="Ej: Superman">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="row">
+                        <button (click)="filtrar(nom.value)">Buscar</button>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="row">
+                        <select id="filtro" [(ngModel)]="filtroSeleccionado" (change)="filtrarbuenosmalos()">
+                            <option value="all">Todos</option>
+                            <option value="good">Good</option>
+                            <option value="bad">Bad</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <app-personaje class="col-4" *ngFor="let personaje of todo; let i = index" [personaje]="personaje"></app-personaje>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+                <div (click)="restarypintar(nom.value)">Antes</div>
+                <div (click)="sumarypintar(nom.value)">Despues</div>
+            </div>
+        </div>
+    </div>
+</div>
