@@ -21,4 +21,11 @@ export class ServiciologinService {
     } 
     return this.resultado;
   }
+  getUsuario(): string | null {
+    return localStorage.getItem("logeado"); // Retorna el usuario guardado o null si no existe
+  }
+  
+  getFav(): any[] {
+    return JSON.parse(localStorage.getItem("favoritos") || '[]'); // Retorna un array
+  }
 }

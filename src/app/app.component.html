@@ -24,7 +24,8 @@
           </li>
         </ul>
         <form class="d-flex">
-          <button class="btn btn-outline-light" type="submit" (click)="login()">Login</button>
+          <button *ngIf="!usuario" class="btn btn-outline-light" type="submit" (click)="login()">Login</button>
+          <button *ngIf="usuario === 'true'" class="btn btn-outline-light" type="submit" (click)="user()">User</button>
         </form>
       </div>
     </div>

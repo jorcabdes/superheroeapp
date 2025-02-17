@@ -11,12 +11,16 @@ import { InicioComponent } from './inicio/inicio.component';
 import { InformacionComponent } from './informacion/informacion.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LoginComponent } from './login/login.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { DetallespersonajesComponent } from './detallespersonajes/detallespersonajes.component';
+import { VercomponentefavoritoComponent } from './vercomponentefavorito/vercomponentefavorito.component';
 
 const appRoutes:Routes = [
   {path:"",component: InicioComponent},
   {path:"informacion",component: InformacionComponent},
   {path:"buscar",component: TodoslospersonajesComponent},
-  {path:"login",component: LoginComponent}
+  {path:"usuario",component: UsuariosComponent},
+  {path:"detallesperso/:id",component: DetallespersonajesComponent},
 
 ]
 
@@ -29,6 +33,8 @@ const appRoutes:Routes = [
     InformacionComponent,
     UsuariosComponent,
     LoginComponent,
+    DetallespersonajesComponent,
+    VercomponentefavoritoComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,9 @@ const appRoutes:Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync('noop')
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

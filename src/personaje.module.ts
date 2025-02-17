@@ -34,7 +34,14 @@ export class Personaje{
         constructor(data: any) {
             this.id = data.id;
             this.name = data.name;
-            this.powerstats = data.powerstats;
+            this.powerstats = this.powerstats = {
+                inteligencia: data.powerstats?.intelligence || 0,
+                fuerza: data.powerstats?.strength || 0,
+                velocidad: data.powerstats?.speed || 0,
+                durabilidad: data.powerstats?.durability || 0,
+                potencia: data.powerstats?.power || 0,
+                combate: data.powerstats?.combat || 0,
+              };
             this.biografia = {
                 nombreCompleto: data.biography["full-name"],
                 alterEgos: data.biography["alter-egos"],

@@ -10,11 +10,12 @@ import { Personaje } from '../../personaje.module';
   styleUrl: './personaje.component.scss'
 })
 export class PersonajeComponent {
+
   constructor(){
     
   }
   ngOnInit(){
-
+    
   }
   @Input() personaje:Personaje;
 

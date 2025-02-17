@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="personaje-details">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <img [src]="personaje.image.url" class="personaje-image" alt="{{ personaje.name }}">
+        </div>
+        <div class="col-md-6">
+          <h2>{{ personaje.name }}</h2>
+          <p><strong>Nombre Completo:</strong> {{ personaje.biografia.nombreCompleto }}</p>
+          <p><strong>Alineación:</strong> {{ personaje.biografia.alineacion }}</p>
+          <p><strong>Género:</strong> {{ personaje.apariencia.genero }}</p>
+          <p><strong>Raza:</strong> {{ personaje.apariencia.raza }}</p>
+          <p><strong>Altura:</strong> {{ personaje.apariencia.altura }}</p>
+          <p><strong>Peso:</strong> {{ personaje.apariencia.peso }}</p>
+          <p><strong>Color de Ojos:</strong> {{ personaje.apariencia.colorDeOjos }}</p>
+          <p><strong>Color de Pelo:</strong> {{ personaje.apariencia.colorDePelo }}</p>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Powerstats</h3>
+          <ul>
+            <li><strong>Inteligencia:</strong> {{ personaje.powerstats.inteligencia}}</li>
+            <li><strong>Fuerza:</strong> {{ personaje.powerstats.fuerza }}</li>
+            <li><strong>Velocidad:</strong> {{ personaje.powerstats.velocidad }}</li>
+            <li><strong>Durabilidad:</strong> {{ personaje.powerstats.durabilidad }}</li>
+            <li><strong>Potencia:</strong> {{ personaje.powerstats.potencia }}</li>
+            <li><strong>Combate:</strong> {{ personaje.powerstats.combate }}</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h3>Biografía</h3>
+          <ul>
+            <li><strong>Alter Egos:</strong> {{ personaje.biografia.alterEgos }}</li>
+            <li><strong>Alias:</strong> <span *ngFor="let alias of personaje.biografia.alias">{{ alias }}</span></li>
+            <li><strong>Lugar de Nacimiento:</strong> {{ personaje.biografia.lugarDeNacimiento }}</li>
+            <li><strong>Primera Aparición:</strong> {{ personaje.biografia.primeraAparicion }}</li>
+            <li><strong>Editorial:</strong> {{ personaje.biografia.editorial }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" (click)="favorito()">Favorito</button>
+      </div>
+    </div>
+  </div>
+  

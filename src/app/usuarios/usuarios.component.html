@@ -1,1 +1,19 @@
-<p>usuarios works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Favoritos</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <app-vercomponentefavorito class="col-4" *ngFor="let personaje of todo; let i = index" [personaje]="personaje"></app-vercomponentefavorito>
+            </div>
+        </div>
+    </div>
+</div>
+
