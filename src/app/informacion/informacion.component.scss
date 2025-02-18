@@ -1,0 +1,156 @@
+// Importamos fuente estilo cómic
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+// Variables de colores
+$primary-color: #00a2ff; 
+$secondary-color: #e60000; // Amarillo
+$background-color: #111; // Fondo oscuro
+$text-color: #fff; // Texto blanco
+$border-color: #ff4500; // Naranja fuerte
+
+@mixin bordecomic() {
+    display: flex;
+    margin: 20px auto;
+    border: 5px solid $primary-color;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 $secondary-color;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-areas:
+        "titulo"
+        "contenido"
+        "referencias";
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    border: 5px solid $primary-color;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba($primary-color, 0.5);
+}
+
+.titulo {
+    grid-area: titulo;
+    text-align: center;
+
+    h1 {
+        font-family: 'Bangers', cursive;
+        font-size: 3rem;
+        color: $primary-color;
+        text-shadow: 3px 3px 0 $secondary-color, 6px 6px 0 #000;
+        mix-blend-mode: darken;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+
+.filas {
+    grid-area: contenido;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+    padding: 10px;
+    @include bordecomic();
+}
+
+// Enlaces con animaciones y filtros
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: $background-color;
+    background-color: $primary-color;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s;
+    filter: drop-shadow(3px 3px 5px rgba($primary-color, 0.5));
+
+    &:hover {
+        background-color: $secondary-color;
+        color: white;
+        transform: scale(1.1);
+        filter: brightness(1.2);
+    }
+}
+
+// Sección de referencias con Grid-area
+.referencias {
+    grid-area: referencias;
+    display: grid;
+    grid-template-areas:
+        "titulo titulo"
+        "api cors"
+        "enlace enlace";
+    gap: 20px;
+}
+
+// Estilos para referencias
+.colum-12:first-child {
+    grid-area: titulo;
+    text-align: center;
+
+    h3 {
+        font-size: 2rem;
+        background: linear-gradient(90deg, $primary-color, $secondary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        mask-size: cover;
+    }
+}
+
+.colum {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    border: 3px solid $background-color;
+    border-radius: 10px;
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.colum:first-of-type {
+    grid-area: api;
+}
+
+.colum:last-of-type {
+    grid-area: cors;
+}
+
+.colum-12:last-child {
+    grid-area: enlace;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .contenedor {
+        grid-template-areas:
+            "titulo"
+            "contenido"
+            "referencias";
+    }
+
+    .referencias {
+        grid-template-areas:
+            "titulo"
+            "api"
+            "cors"
+            "enlace";
+    }
+}

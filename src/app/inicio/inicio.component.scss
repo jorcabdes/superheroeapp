@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+//mix-blend-mode para la imagen
+$primary-color: #00a2ff; 
+$secondary-color: #e60000;
+$background-color: #111; 
+$text-color: #fff; 
+
+@mixin bordecomic() {
+    display: flex;
+    margin: 20px auto;
+    border: 5px solid $primary-color;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 $secondary-color;
+}
+
+.contenido {
+    max-width: 1200px;
+    margin-top: 10px;
+    padding: 20px;
+    border: 5px solid $primary-color;
+    border-radius: 15px;
+    box-shadow: 0 0 20px $secondary-color;
+}
+
+.titulo {
+    font-family: 'Bangers', cursive;
+    font-size: 3rem;
+    text-align: center;
+    color: $secondary-color;
+    text-shadow: 3px 3px 0 $primary-color, 6px 6px 0 #000;
+    animation: temblor 1.5s infinite alternate;
+}
+
+@keyframes temblor {
+    0% { transform: translateX(-5px); }
+    100% { transform: translateX(5px); }
+}
+
+.vinyetas {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+    padding: 10px;
+    @include bordecomic();
+}
+
+iframe {
+    @include bordecomic();
+
+    &:hover{
+        width: 800px;
+        height: 500;
+    }
+}
+.centrado{
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+}
